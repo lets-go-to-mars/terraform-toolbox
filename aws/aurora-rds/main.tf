@@ -8,24 +8,19 @@ module "aurora_cluster" {
   instances = var.cluster_instances
 
   vpc_id               = var.vpc_id
-  db_subnet_group_name = "db-subnet-group"
-  security_group_rules = {
-    ex1_ingress = {
-      cidr_blocks = ["10.20.0.0/20"]
-    }
-    ex1_ingress = {
-      source_security_group_id = "sg-12345678"
-    }
-  }
+  db_subnet_group_name = var.db_subnet_group_name
+  security_group_rules = var.security_group_rules
+  security_group_tags = merge(
+    var.security_group_tags,
+    local.default_tags,
+  )
 
   storage_encrypted   = true
   apply_immediately   = true
   monitoring_interval = 10
-
   enabled_cloudwatch_logs_exports = ["postgresql"]
-
-  tags = {
-    Environment = "dev"
-    Terraform   = "true"
-  }
+  tags = merge(
+    var.tags,
+    local.default_tags,
+  )
 }

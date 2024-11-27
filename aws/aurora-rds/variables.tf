@@ -51,3 +51,13 @@ variable "security_group_rules" {
     source_security_group_id = string
   }))
 }
+
+variable "security_group_tags" {
+  description = "A map of tags to apply to the security group"
+  type        = map(string)
+}
+
+variable "tags" {
+  description = "A map of tags to apply to the cluster"
+  type        = map(string)
+}

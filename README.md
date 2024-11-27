@@ -21,3 +21,7 @@ Terraform Toolbox is designed to streamline infrastructure management by providi
 - **Infrastructure as Code (IaC)**: Simplify cloud infrastructure management by using pre-built, reusable modules.
 - **Standardization**: Ensure consistency and best practices across multiple projects and teams.
 - **Efficiency**: Reduce the time and effort required to set up and manage infrastructure by leveraging pre-configured modules.
+
+## Modules
+
+- **aurora-rds**: [Creates an Aurora PostgreSQL cluster according to LGTM best-practices](./aws/aurora-rds/README.md)
