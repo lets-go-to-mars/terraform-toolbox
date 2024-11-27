@@ -44,7 +44,13 @@ variable "db_subnet_group_name" {
   type        = string
 }
 
-variable "security_group_rules" {
+variable "cluster_create_security_group" {
+  description = "Create a security group for the cluster"
+  type        = bool
+  default     = true
+}
+
+variable "cluster_security_group_rules" {
   description = "A map of security group rules to apply to the cluster"
   type        = map(object({
     cidr_blocks            = list(string)
@@ -52,12 +58,17 @@ variable "security_group_rules" {
   }))
 }
 
-variable "security_group_tags" {
+variable "cluster_security_group_tags" {
   description = "A map of tags to apply to the security group"
   type        = map(string)
 }
 
-variable "tags" {
+variable "vpc_security_group_ids" {
+  description = "A list of security group IDs to apply to the cluster"
+  type        = list(string)
+}
+
+variable "cluster_tags" {
   description = "A map of tags to apply to the cluster"
   type        = map(string)
 }

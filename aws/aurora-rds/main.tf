@@ -9,9 +9,10 @@ module "aurora_cluster" {
 
   vpc_id               = var.vpc_id
   db_subnet_group_name = var.db_subnet_group_name
-  security_group_rules = var.security_group_rules
+  security_group_rules = var.cluster_security_group_rules
+  create_security_group = var.cluster_create_security_group
   security_group_tags = merge(
-    var.security_group_tags,
+    var.cluster_security_group_tags,
     local.default_tags,
   )
 
@@ -19,8 +20,9 @@ module "aurora_cluster" {
   apply_immediately   = true
   monitoring_interval = 10
   enabled_cloudwatch_logs_exports = ["postgresql"]
+  vpc_security_group_ids = var.vpc_security_group_ids
   tags = merge(
-    var.tags,
+    var.cluster_tags,
     local.default_tags,
   )
 }
