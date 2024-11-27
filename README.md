@@ -1,10 +1,23 @@
-# Launch-Pad 🚀
+# Terraform Toolbox
 
-Welcome to **Launch-Pad**, a library of reusable components designed to streamline development across multiple teams. This repository aims to provide a collection of well-documented, tested, and versatile components that can be easily integrated into various projects.
+Welcome to **Terraform Toolbox**, a repository dedicated to hosting a collection of reusable Terraform modules. This repository aims to provide efficient, well-documented, and versatile infrastructure components that can be easily integrated into various projects.
 
-## Features  
-- 🛠 **Reusable Components**: A curated library of ready-to-use components tailored for various use cases.  
-- 📦 **Pluggable Design**: Components are designed to integrate seamlessly with diverse architectures.  
-- 📚 **Comprehensive Documentation**: Clear and detailed usage guidelines for each component.  
-- 🌟 **Cross-Team Collaboration**: A central repository to share and leverage components across teams.  
-- 🧪 **Tested & Reliable**: Components are rigorously tested to ensure quality and stability.  
+## Table of Contents
+
+- Overview
+- Use Cases
+- Installation
+- Usage
+- Modules
+- Contributing
+- License
+
+## Overview
+
+Terraform Toolbox is designed to streamline infrastructure management by providing a library of reusable Terraform modules. Each module is packaged with Terraform code and a GitHub Actions workflow to ensure efficient deployment and management.
+
+## Use Cases
+
+- **Infrastructure as Code (IaC)**: Simplify cloud infrastructure management by using pre-built, reusable modules.
+- **Standardization**: Ensure consistency and best practices across multiple projects and teams.
+- **Efficiency**: Reduce the time and effort required to set up and manage infrastructure by leveraging pre-configured modules.
