@@ -1,6 +1,6 @@
 variable "cluster_name" {
   description = "The name of the cluster"
-  type        = string  
+  type        = string
 }
 
 variable "cluster_engine" {
@@ -23,15 +23,8 @@ variable "cluster_instance_class" {
 
 variable "cluster_instances" {
   description = "A map of instance configurations to use for the cluster"
-  type        = map(object({
-    instance_class = string
-  }))
-  default     = {
-    one = {}
-    2 = {
-      instance_class = "db.r6g.2xlarge"
-    }
-  }
+  type = any
+  default = {}
 }
 
 variable "vpc_id" {
@@ -39,9 +32,20 @@ variable "vpc_id" {
   type        = string
 }
 
+variable "cluster_create_db_subnet_group"{
+  description = "Create a DB subnet group for the cluster"
+  type        = bool
+  default     = true
+}
+
 variable "db_subnet_group_name" {
   description = "The name of the DB subnet group to use for the cluster"
   type        = string
+}
+
+variable "cluster_db_subnets" {
+  description = "A list of subnet IDs to use for the cluster"
+  type        = list(string)
 }
 
 variable "cluster_create_security_group" {
@@ -52,23 +56,23 @@ variable "cluster_create_security_group" {
 
 variable "cluster_security_group_rules" {
   description = "A map of security group rules to apply to the cluster"
-  type        = map(object({
-    cidr_blocks            = list(string)
-    source_security_group_id = string
-  }))
+  type = any
 }
 
 variable "cluster_security_group_tags" {
   description = "A map of tags to apply to the security group"
   type        = map(string)
+  default = {}
 }
 
 variable "vpc_security_group_ids" {
   description = "A list of security group IDs to apply to the cluster"
   type        = list(string)
+  default     = []
 }
 
 variable "cluster_tags" {
   description = "A map of tags to apply to the cluster"
   type        = map(string)
+  default = {}
 }
