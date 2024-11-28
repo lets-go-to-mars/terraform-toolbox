@@ -35,7 +35,6 @@ jobs:
       - name: Terraform Init
 
         run:   |
-              cd ./code/03-one-webserver
               terraform init -backend-config="organization=${{ vars.TF_CLOUD_ORGANIZATION }}" -backend-config="token=${{ secrets.TF_API_TOKEN }}"
       # - name: Terraform Config File
       #   run:  |
