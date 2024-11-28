@@ -6,7 +6,8 @@ module "aurora_cluster" {
   engine_version = var.cluster_engine_version
   instance_class = var.cluster_instance_class
   instances      = var.cluster_instances
-
+  master_username = var.master_username
+  master_password = var.master_password
   vpc_id                = var.vpc_id
   create_db_subnet_group = var.cluster_create_db_subnet_group
   security_group_rules  = var.cluster_security_group_rules

@@ -32,6 +32,16 @@ variable "vpc_id" {
   type        = string
 }
 
+variable "master_username" {
+  description = "The ID of the VPC in which to create the cluster"
+  type        = string
+}
+variable "master_password" {
+  description = "The ID of the VPC in which to create the cluster"
+  type        = string
+  sensitive   = true
+}
+
 variable "cluster_create_db_subnet_group"{
   description = "Create a DB subnet group for the cluster"
   type        = bool
