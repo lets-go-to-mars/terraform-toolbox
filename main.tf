@@ -8,11 +8,11 @@ terraform {
   }
 }
 
-module "resource_group" {
-    source = "./aws/resource_group"
+# module "resource_group" {
+#     source = "./aws/resource_group"
 
-    prefix = "${var.resource_prefix}-${var.environment}"
-}
+#     prefix = "${var.resource_prefix}-${var.environment}"
+# }
 
 module "vpc" {
   source = "./aws/vpc"
