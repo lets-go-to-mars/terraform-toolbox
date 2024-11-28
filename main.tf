@@ -1,11 +1,5 @@
 terraform {
-  cloud {
-    organization = "lets-go-to-mars"
-
-    workspaces {
-      name = "hackathon-dev"
-    }
-  }
+  
   required_providers {
     aws = {
       source  = "hashicorp/aws"
