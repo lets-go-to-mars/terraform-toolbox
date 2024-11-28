@@ -1,0 +1,51 @@
+name: Terraform Plan
+
+on:
+  push:
+    branches:
+      - enable-e2e-pipeline
+  pull_request:
+    branches:
+      - main
+
+  workflow_dispatch:
+
+env:
+  TF_CLOUD_ORGANIZATION: ${{ vars.TF_CLOUD_ORGANIZATION }}
+  TF_API_TOKEN: "${{ secrets.TF_API_TOKEN }}"
+  TF_WORKSPACE: "terraform-toolbox"
+  CONFIG_DIRECTORY: "./"
+
+jobs:
+  terraform:
+    name: 'Terraform Plan'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_version: 1.0.0
+      - name: Navigate to folder
+        run:   |
+
+      - name: Terraform Init
+
+        run:   |
+              cd ./code/03-one-webserver
+              terraform init -backend-config="organization=${{ vars.TF_CLOUD_ORGANIZATION }}" -backend-config="token=${{ secrets.TF_API_TOKEN }}"
+      # - name: Terraform Config File
+      #   run:  |
+      #         echo "credentials \"app.terraform.io\" { token = \"${{ secrets.TF_API_TOKEN }}\" }" > ~/.terraformrc 
+      #         pwd
+      #         ls -lta
+      
+
+
+      - name: Terraform Plan
+        run:  |
+              
+              terraform plan
